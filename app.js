@@ -340,7 +340,7 @@ function renderGame() {
 }
 
 function normalizeModelName(value) {
-  return value.trim().replace(/^models\//, "") || "gemini-3.5-flash";
+  return value.trim().replace(/^models\//, "") || "gemini-3.5-flash-lite";
 }
 
 function cleanModelText(text) {
