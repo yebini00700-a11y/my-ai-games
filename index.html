@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 게임 메이커</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Vanilla JS</p>
+      <h1>AI 게임 메이커</h1>
+    </div>
+    <output id="status" class="status">대기 중</output>
+  </header>
+
+  <main class="workspace">
+    <section class="panel controls" aria-label="게임 수정 도구">
+      <div class="field-grid">
+        <label class="field">
+          <span>Gemini API 키</span>
+          <input id="apiKey" type="password" autocomplete="off" placeholder="AIza...">
+        </label>
+        <label class="field">
+          <span>모델</span>
+          <input id="modelName" type="text" value="gemini-3.5-flash" autocomplete="off">
+        </label>
+      </div>
+
+      <label class="checkline">
+        <input id="rememberKey" type="checkbox">
+        <span>이 브라우저에 키 저장</span>
+      </label>
+
+      <label class="field prompt-field">
+        <span>수정 요청</span>
+        <textarea id="prompt" placeholder="예: 배경을 밤하늘로 바꾸고, 점수 5점마다 기둥 색을 바꿔줘."></textarea>
+      </label>
+
+      <div class="button-row">
+        <button id="generateButton" class="primary" type="button">게임에 반영</button>
+        <button id="previewButton" type="button">미리보기 새로고침</button>
+        <button id="resetButton" type="button">초기화</button>
+        <button id="copyButton" type="button">코드 복사</button>
+        <button id="downloadButton" type="button">HTML 저장</button>
+      </div>
+
+      <p class="security-note">백엔드가 없으므로 API 키는 브라우저 요청에 포함됩니다. 개인용 로컬 도구로만 사용하세요.</p>
+
+      <label class="field code-field">
+        <span>현재 HTML 코드</span>
+        <textarea id="codeEditor" spellcheck="false"></textarea>
+      </label>
+    </section>
+
+    <section class="preview-panel" aria-label="게임 미리보기">
+      <div class="preview-header">
+        <strong>실시간 미리보기</strong>
+        <span id="codeSize">0 KB</span>
+      </div>
+      <iframe id="gameFrame" title="게임 미리보기" sandbox="allow-scripts"></iframe>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
